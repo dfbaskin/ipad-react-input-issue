@@ -9,7 +9,8 @@ export class TextValue extends PureComponent {
         super();
         this.state = {
             textValue: 'abc xyz',
-            editModeEnabled: false
+            editModeEnabled: false,
+            outsideOfEventHandler: false
         };
     }
 
@@ -17,14 +18,24 @@ export class TextValue extends PureComponent {
         this.setState(() => ({ textValue }));
     };
 
+    toggleOutside = () => {
+        const {outsideOfEventHandler} = this.state;
+        this.setState(() => ({ outsideOfEventHandler: !outsideOfEventHandler }));
+    };
+
     toggleEditMode = () => {
-        const {editModeEnabled} = this.state;
-        this.setState(() => ({ editModeEnabled: !editModeEnabled }));
+        const {editModeEnabled, outsideOfEventHandler} = this.state;
+        const toggle = () => this.setState(() => ({ editModeEnabled: !editModeEnabled }));
+        if(outsideOfEventHandler) {
+            setTimeout(toggle);
+        } else {
+            toggle();
+        }
     };
 
     render(props){
-        const {textValue, editModeEnabled} = this.state;
-        const {textValueChanged, toggleEditMode} = this;
+        const {textValue, editModeEnabled, outsideOfEventHandler} = this.state;
+        const {textValueChanged, toggleEditMode, toggleOutside} = this;
         const editProps = {
             textValue,
             textValueChanged,
@@ -35,7 +46,13 @@ export class TextValue extends PureComponent {
             toggleEditMode
         };
         return (
-            <div>
+            <div className="edit-box">
+                <div>
+                    <label>
+                        <input type="checkbox" checked={outsideOfEventHandler} onChange={toggleOutside} />
+                        Toggle Edit Mode Outside of Event Handler
+                    </label>
+                </div>
                 {editModeEnabled ?
                     <TextEdit {...editProps} /> :
                     <TextDisplay {...displayProps} />
