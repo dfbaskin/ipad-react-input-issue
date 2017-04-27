@@ -1,6 +1,7 @@
 {
   "name": "ipad-react-input-issue",
   "version": "0.1.0",
+  "homepage": "https://dfbaskin.github.io/ipad-react-input-issue/",
   "private": true,
   "dependencies": {
     "prop-types": "^15.5.8",
