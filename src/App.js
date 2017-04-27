@@ -9,12 +9,15 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <div>
+            Click the text below to toggle edit mode ...
+          </div>
+          <div>
+            <a href="https://github.com/dfbaskin/ipad-react-input-issue">Source Code</a>
+          </div>
         </div>
         <div className="App-intro">
-
-            <TextValue textValue="My Text" editModeEnabled={false} />
-
+          <TextValue textValue="My Text" editModeEnabled={false} />
         </div>
       </div>
     );

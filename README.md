@@ -18,6 +18,3 @@ does not automatically display.
         }
     };
 ```
-
-Source Code:
-[https://github.com/dfbaskin/ipad-react-input-issue](https://github.com/dfbaskin/ipad-react-input-issue)

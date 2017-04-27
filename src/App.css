@@ -14,6 +14,17 @@
   color: white;
 }
 
+.App-header > div {
+  background-color: #222;
+  color: white;
+  margin: 1rem;
+}
+
+.App-header > div > a {
+  text-decoration: none;
+  color: white;
+}
+
 .App-intro {
   padding: 10rem;
   font-size: large;
