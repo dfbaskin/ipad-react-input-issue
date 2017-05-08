@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import {TextValue as TextValueSimple} from "./simple/text-value";
 import {TextValue as TextValueOutside} from "./outside/text-value";
+import {TextValue as TextValueRedux} from "./redux/text-value";
 import "./text-input-examples.css";
 
 export const ExampleRadioButton = (props) => {
@@ -82,6 +83,13 @@ export class TextInputExamples extends PureComponent {
                                 input field manually.
                             </p>
                         </ExampleDescription>
+                        <ExampleDescription value="redux" selected={selectedExample}>
+                            <p>
+                                The user clicks on the static text and the input field is displayed,
+                                but using Redux to go into edit mode (the click handler dispatches
+                                an action to enable edit mode).
+                            </p>
+                        </ExampleDescription>
                     </div>
                 </div>
                 <div className="row">
@@ -93,6 +101,7 @@ export class TextInputExamples extends PureComponent {
                             <TextValueOutside/>
                         </Example>
                         <Example value="redux" selected={selectedExample}>
+                            <TextValueRedux/>
                         </Example>
                     </div>
                 </div>
