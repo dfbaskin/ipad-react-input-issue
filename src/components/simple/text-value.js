@@ -14,7 +14,7 @@ export class TextValue extends PureComponent {
     }
 
     textValueChanged = (textValue) => {
-        setTimeout(this.setState(() => ({ textValue })));
+        this.setState(() => ({ textValue }));
     };
 
     toggleEditMode = () => {
@@ -22,7 +22,7 @@ export class TextValue extends PureComponent {
         this.setState(() => ({ editModeEnabled: !editModeEnabled }));
     };
 
-    render(props){
+    render() {
         const {textValue, editModeEnabled} = this.state;
         const {textValueChanged, toggleEditMode} = this;
         const editProps = {
