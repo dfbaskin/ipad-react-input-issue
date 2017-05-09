@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import {TextValue as TextValueSimple} from "./simple/text-value";
 import {TextValue as TextValueOutside} from "./outside/text-value";
 import {TextValue as TextValueRedux} from "./redux/text-value";
+import {TextValue as TextValueOffScreen} from "./off-screen/text-value";
 import "./text-input-examples.css";
 
 export const ExampleRadioButton = (props) => {
@@ -66,6 +67,9 @@ export class TextInputExamples extends PureComponent {
                         <ExampleRadioButton value="redux" selected={selectedExample} onChange={this.exampleChanged}>
                             Using Redux
                         </ExampleRadioButton>
+                        <ExampleRadioButton value="off-screen" selected={selectedExample} onChange={this.exampleChanged}>
+                            Off-Screen
+                        </ExampleRadioButton>
                     </div>
                     <div className="large-6 columns">
                         <h4>Example</h4>
@@ -90,6 +94,12 @@ export class TextInputExamples extends PureComponent {
                                 an action to enable edit mode).
                             </p>
                         </ExampleDescription>
+                        <ExampleDescription value="off-screen" selected={selectedExample}>
+                            <p>
+                                The user clicks on the static text and the input field is displayed,
+                                but using Redux and where the input field is active off-screen.
+                            </p>
+                        </ExampleDescription>
                     </div>
                 </div>
                 <div className="row">
@@ -102,6 +112,9 @@ export class TextInputExamples extends PureComponent {
                         </Example>
                         <Example value="redux" selected={selectedExample}>
                             <TextValueRedux/>
+                        </Example>
+                        <Example value="off-screen" selected={selectedExample}>
+                            <TextValueOffScreen/>
                         </Example>
                     </div>
                 </div>

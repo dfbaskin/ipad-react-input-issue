@@ -4,3 +4,13 @@
   padding: 2rem;
   border: 1px solid #ddd;
 }
+
+.off-screen {
+  position: relative;
+}
+
+.off-screen > div:nth-of-type(2) {
+  position: absolute;
+  top: -1.6rem;
+  left: -20rem;
+}
