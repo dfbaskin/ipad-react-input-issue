@@ -27,16 +27,14 @@ export class TextEditComponent extends PureComponent {
     componentWillUpdate(nextProps) {
         if(nextProps.editMode && !this.props.editMode) {
             const {inputRef} = this;
+            inputRef.focus();
+            inputRef.select();
+        } else if(!nextProps.editMode && this.props.editMode) {
+            const {inputRef} = this;
             setTimeout(() => {
-                inputRef.focus();
-                inputRef.select();
+                inputRef.blur();
             });
         }
-    }
-
-    componentWillUnmount() {
-        const {inputRef} = this;
-        inputRef.blur();
     }
 
     render() {
