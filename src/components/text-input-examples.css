@@ -11,6 +11,7 @@
 
 .off-screen > div:nth-of-type(2) {
   position: absolute;
-  top: -1.6rem;
-  left: -20rem;
+  top: -200px;
+  left: -600px;
+  transition: left 0.25s ease-in-out, top 0.25s ease-in-out;
 }

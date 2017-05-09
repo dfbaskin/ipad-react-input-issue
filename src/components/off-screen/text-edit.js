@@ -34,6 +34,11 @@ export class TextEditComponent extends PureComponent {
         }
     }
 
+    componentWillUnmount() {
+        const {inputRef} = this;
+        inputRef.blur();
+    }
+
     render() {
         const {props: {textValue, editMode}, setInputRef: ref, onChange, onKeyDown} = this;
         const inputProps = {
@@ -44,7 +49,7 @@ export class TextEditComponent extends PureComponent {
             ref,
             tabIndex: -1
         };
-        const divStyle = editMode ? { left: 0 } : null;
+        const divStyle = editMode ? { left: 0, top: "-1.6rem" } : null;
         return (
             <div style={divStyle}>
                 <label>
